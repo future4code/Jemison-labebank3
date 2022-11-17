@@ -24,3 +24,29 @@ app.get("/contas", (req:Request, res: Response) => {
   })
   res.status(200).send(listaContas)
 })
+
+//Endpoint adicionar nova conta
+app.post("/criarConta", (req:Request, res: Response) => {
+  try {
+      const {id, nome, CPF, dataDeNascimento, saldo, extrato} = req.body
+
+      if(!id || !nome || !CPF || !dataDeNascimento || !saldo || !extrato){
+          throw new Error("Precisa adicionar os erros aqui")
+      }
+
+      const novaConta = {
+          id,
+          nome,
+          CPF,
+          dataDeNascimento,
+          saldo,
+          extrato
+      }
+
+      contas.push(novaConta)
+
+      res.status(200).send("Usuário cadastrado com sucesso")
+  } catch (error) {
+      res.status(400).send("Usário não cadastrado")
+  }
+})

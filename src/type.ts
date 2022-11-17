@@ -2,6 +2,7 @@
 
 export type Usuario = {
     id: number,
+    CPF: string,
     nome: string,
     dataDeNascimento: string,
     saldo: number,
