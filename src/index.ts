@@ -34,6 +34,17 @@ app.post("/criarConta", (req:Request, res: Response) => {
           throw new Error("Precisa adicionar os erros aqui")
       }
 
+      const resultado : string = dataDeNascimento.split("/")
+      const dia: number = Number(resultado[0])
+      const mes: number = Number(resultado[1])
+      const ano: number = Number(resultado[2])//até aqui certo
+
+      const dataAtual: number = 2022//mudar linha pra data atual
+      if((dataAtual - ano) < 18)
+      {
+        throw new Error("Menor de idade") 
+      }
+
       const novaConta = {
           id,
           nome,
