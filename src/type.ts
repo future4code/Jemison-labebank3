@@ -9,7 +9,14 @@ export type Usuario = {
 }
 
 export type Extrato = {
-    id: number,
+    id: TIPOTRANSACAO,
     data: string,
-    descricao: string
+    descricao: string,
+    valor: number
+}
+
+export enum TIPOTRANSACAO  {
+    RECEBER = "receber",
+    PAGAR = "pagar",
+    TRANSFERIR = "transferir"
 }
