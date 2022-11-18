@@ -28,10 +28,23 @@ app.get("/contas", (req:Request, res: Response) => {
 //Endpoint adicionar nova conta
 app.post("/criarConta", (req:Request, res: Response) => {
   try {
+      let errorCode = 420;
       const {id, nome, CPF, dataDeNascimento, saldo, extrato} = req.body
 
-      if(!id || !nome || !CPF || !dataDeNascimento || !saldo || !extrato){
+      if(!id || !nome || !CPF || !dataDeNascimento || !saldo || !extrato){ //tem que separar para por um if para cada situação errada
+          errorCode = 420;
           throw new Error("Precisa adicionar os erros aqui")
+      }
+
+      let data = new Date;
+      const resultado : string = dataDeNascimento.split("/")
+      const ano: number = Number(resultado[2])
+      let anoAtual = data.getFullYear()
+
+      if((anoAtual - ano) < 18) {
+        errorCode = 420;
+        throw new Error("Menor de idade não pode criar conta!")
+
       }
 
       const novaConta = {
