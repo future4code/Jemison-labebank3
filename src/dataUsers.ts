@@ -4,6 +4,7 @@ import { TIPOTRANSACAO } from "./type"
 export const contas: Usuario[] = [
     {
         id: 1,
+        CPF: "12345678901",
         nome: "Alessandra",
         dataDeNascimento: "09/11/1995",
         saldo: 0,
@@ -24,6 +25,7 @@ export const contas: Usuario[] = [
     },
     {
         id: 2,
+        CPF: "09876543210",
         nome: "André",
         dataDeNascimento: "12/08/1089",
         saldo: 30,
@@ -44,6 +46,7 @@ export const contas: Usuario[] = [
     },
     {
         id: 3,
+        CPF: "22233344455",
         nome: "Daniele",
         dataDeNascimento: "26/07/2000",
         saldo: 200,
@@ -51,6 +54,7 @@ export const contas: Usuario[] = [
     },
     {
         id: 4,
+        CPF: "89745632154",
         nome: "Marina",
         dataDeNascimento: "14/01/1998",
         saldo: 7000,
